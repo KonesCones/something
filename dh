@@ -268,7 +268,7 @@ Tab3:Label("Player Scripts")
 game.StarterGui:SetCore(
     "SendNotification",
     {
-        Title = "TokwaWare",
+        Title = "KonWare",
         Text = "Welcome",
         Icon = "RBXID OR BLANK",
         Duration = "DURATION IN SECONDS",
