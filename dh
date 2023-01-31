@@ -719,10 +719,6 @@ Tab6:Keybind(
     end
 )
 
-local Tab7 = Window:Tab("Credits", false)
-
-Tab7:Label("kermetthefrog#2591,rsalinq#4098")
-
 local Aiming = loadstring(game:HttpGet("https://pastebin.com/raw/vsVecTqs"))()
 Aiming.TeamCheck(false)
 
