@@ -1,0 +1,67 @@
+-- Create the main frame for the GUI
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0, 200, 0, 200)
+frame.Position = UDim2.new(0.5, -100, 0.5, -100)
+frame.BackgroundTransparency = 0.5
+frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+frame.BorderSizePixel = 0
+frame.Visible = false
+frame.Parent = game.Players.LocalPlayer.PlayerGui
+
+-- Create the label for the GUI
+local label = Instance.new("TextLabel")
+label.Text = "Teleport Tool"
+label.Size = UDim2.new(1, 0, 0, 36)
+label.Position = UDim2.new(0, 0, 0, 0)
+label.Font = Enum.Font.SourceSans
+label.TextSize = 36
+label.TextColor3 = Color3.fromRGB(255, 255, 255)
+label.BackgroundTransparency = 1
+label.Parent = frame
+
+-- Create the button for the GUI
+local button = Instance.new("TextButton")
+button.Text = "Teleport"
+button.Size = UDim2.new(1, 0, 0, 36)
+button.Position = UDim2.new(0, 0, 0, 60)
+button.Font = Enum.Font.SourceSans
+button.TextSize = 24
+button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.BackgroundTransparency = 0.5
+button.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+button.Parent = frame
+
+-- Teleport the player when the button is clicked
+button.MouseButton1Click:Connect(function()
+  local target = game.Workspace:FindPartOnRay(game.Players.LocalPlayer.Character.Head.CFrame, game.Players.LocalPlayer.Character.Head.CFrame.LookVector, math.huge)
+  game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(target.Position)
+end)
+
+-- Animate the GUI to show when it's displayed
+local animation = Instance.new("UIAspectRatioConstraint")
+animation.Parent = frame
+animation.AspectRatio = 1
+
+frame.Visible = true
+animation.AspectRatio = 0
+
+-- Create the teleport tool
+local teleportTool = Instance.new("Tool")
+teleportTool.Name = "Teleport Tool"
+teleportTool.Parent = game.Players.LocalPlayer.Backpack
+
+-- Create the handle for the tool
+local handle = Instance.new("Part")
+handle.Name = "Handle"
+handle.Parent = teleportTool
+handle.Size = Vector3.new(0.2, 1, 0.2)
+handle.Material = Enum.Material.Plastic
+
+-- Create the teleport button on the handle
+local teleportButton = Instance.new("SurfaceGui")
+teleportButton.Parent = handle
+teleportButton.AlwaysOnTop = true
+
+-- Create the text label on the teleport button
+local label = Instance.new("TextLabel")
+label.Parent = teleport
