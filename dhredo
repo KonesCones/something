@@ -222,3 +222,4 @@ aimlock()
 end
 }
 )
+OrionLib:Init()
